@@ -351,7 +351,7 @@ export default App;
 ```
 - Tab.Navigator 도입
 - isLoggedIn 분기처리
-- Drawer과 Tab.Group 사용처 소개
+- Drawer과 Tab.Group(특정 스크린들 간 공통속성이 있을 때, 조건문 사용시 children이 하나여야 한다는 오류 발생 시 사용) 사용처 소개
 src/pages/Delivery.tsx
 ```typescript jsx
 
@@ -396,20 +396,20 @@ npm i react-native-keyboard-aware-scrollview
 ```
 - 타이핑이 없으므로 직접 타입 추가해야 함
 - react-native-keyboard-aware-scroll-view 라이브러리는 타입이 있음
-
-types/react-native-keyboard-aware-scroll-view
+- 라이브러리 중 ts를 지원하지 않는 라이브러리 설치방식(npm i @types/~)
+react-native-keyboard-aware-scroll-view는 존재하지 않아 따로 타입에 관해 작성해주어야함
 ```
 ```
 src/components/DismissKeyBoardView.tsx
 ```typescript jsx
-
 ```
 ## 서버 요청 보내기(ch2)
 
-back 서버 실행 필요, DB 없이도 되게끔 만들어둠. 서버 재시작 시 데이터는 날아가니 주의
+back 서버 실행 필요, DB 없이도 되게끔 만들어둠. 서버 재시작 시 데이터는 날아가니 주의. 서버 터미널은 항상 켜둬야함.
 ```shell
 # 터미널 하나 더 켜서
 cd back
+npm i
 npm start
 ```
 
