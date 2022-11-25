@@ -447,7 +447,7 @@ export default App;
 npm install react-native-encrypted-storage
 npx pod-install # ios 전용
 ```
-서버 요청은 axios 사용(요즘 ky나 got으로 넘어가는 추세이나 react-native와 호환 여부 불투명)
+서버 요청은 axios 사용(요즘 ky나 got으로 넘어가는 추세(http요청을 axios로 모두 처리하려다 보니 axios가 너무 커져버렸기 때문)이나 react-native와 호환 여부 불투명)
 ```shell
 npm i axios
 ```

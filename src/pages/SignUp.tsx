@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   Alert,
   Platform,
   Pressable,
@@ -11,10 +12,12 @@ import {
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import DismissKeyboardView from '../components/DismissKeyboardView';
+import axios from 'axios';
 
 type SignUpScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
 function SignUp({ navigation }: SignUpScreenProps) {
+  const [loading, SetLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +34,7 @@ function SignUp({ navigation }: SignUpScreenProps) {
   const onChangePassword = useCallback(text => {
     setPassword(text.trim());
   }, []);
-  const onSubmit = useCallback(() => {
+  const onSubmit = useCallback(async () => {
     if (!email || !email.trim()) {
       return Alert.alert('알림', '이메일을 입력해주세요.');
     }
@@ -55,6 +58,21 @@ function SignUp({ navigation }: SignUpScreenProps) {
       );
     }
     console.log(email, name, password);
+    try {
+      SetLoading(true);
+      // HTTP 메서드: get, put, patch, post, delete, head, options
+      const response = await axios.post('/user', { email, name, password }, {
+        headers: {
+          token: '고유한 값',
+        }
+      });
+      console.log(response);
+    }
+    catch (error) {
+      console.log(error.response);
+    } finally {
+
+    }
     Alert.alert('알림', '회원가입 되었습니다.');
   }, [email, name, password]);
 
@@ -119,7 +137,11 @@ function SignUp({ navigation }: SignUpScreenProps) {
           }
           disabled={!canGoNext}
           onPress={onSubmit}>
-          <Text style={styles.loginButtonText}>회원가입</Text>
+          {loading ? (
+            <ActivityIndicator color="gray" />
+          ) : (
+            <Text style={styles.loginButtonText}>회원가입</Text>
+          )}
         </Pressable>
       </View>
     </DismissKeyboardView>
