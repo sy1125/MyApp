@@ -485,7 +485,9 @@ API_URL=http://10.0.2.2:3105
 - [ios]에서 안 될 때는 Podfile에 pod 'react-native-config', :path => '../node_modules/react-native-config/react-native-config.podspec' 추가해보기
 
 
-암호화해서 저장할 데이터는 다음 패키지에
+암호화해서 저장할 데이터는
+npm i react-native-encrypted-storage 설치 후
+다음 패키지에
 ```
 import EncryptedStorage from 'react-native-encrypted-storage';
 ```
@@ -494,8 +496,8 @@ await EncryptedStorage.setItem('키', '값');
 await EncryptedStorage.removeItem('키');
 const 값 = await EncryptedStorage.getItem('키');
 ```
-- redux에 넣은 데이터는 앱을 끄면 날아감
-- 앱을 꺼도 저장되어야 하고 민감한 값은 encrypted-storage에
+- redux에 넣은 데이터는 앱을 끄면 날아감(보안에 안전)
+- 앱을 꺼도 저장되어야 하고 보안에 민감한 값은 encrypted-storage에
 - 개발 환경별로 달라지는 값은 react-native-config에 저장하면 좋음(암호화 안 됨)
 - 그 외에 유지만 되면 데이터들은 async-storage에 저장(npm install @react-native-async-storage/async-storage)
 
