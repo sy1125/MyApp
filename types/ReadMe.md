@@ -655,8 +655,8 @@ src/pages/Orders.tsx
 ```typescript jsx
 
 ```
-- ScrollView + map 조합은 좋지 않음
-- FlatList를 쓰기
+- ScrollView + map 조합은 좋지 않음(ScrollView는 안보이는 부분까지 모두 렌더링하는데, 서버에서 내려주는 데이터의 양이 얼마나 될지 모르기 때문에 반복문과 함께 사용하는 것은 성능적으로 문제가 될 수 있음)
+- FlatList를 쓰기(위의 대안)
 - 반복되는 것은 컴포넌트로 빼는 것이 좋음
 - keyExtractor 반드시 설정하기
 
