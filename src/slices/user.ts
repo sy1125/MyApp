@@ -31,7 +31,10 @@ const userSlice = createSlice({
       state.email = action.payload;
     },
     setMoney(state, action: PayloadAction<number>) {
-      state.money = action.payload
+      state.money = action.payload;
+    },
+    setAccessToken(state, action) {
+      state.accessToken = action.payload;
     }
   },
   extraReducers: builder => { },
