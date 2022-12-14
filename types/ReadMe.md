@@ -722,8 +722,9 @@ Podfile
 npx pod-install # ios 전용
 ```
 
-- 안드로이드 앱 패키지 이름: com.[원하는이름].fooddeliveryapp (ex: com.zerocho.fooddeliveryapp)
+- 안드로이드 앱 패키지 이름: com.[원하는이름].myapp (ex: com.zerocho.myapp)
 - [커밋 참조](https://github.com/ZeroCho/food-delivery-app/commit/36295cabf2cdab4ed68fa3b907c7b467101a02a5) (폴더 등 변경할 게 많음)
+android/app/_BUCK, android/app/build.gradle, android/app/src/debug/java/com, android/app/src/main/AndroidManifest.xml, android/app/proguard-rules.pro, android/app/src/main/java/com/seonyong/myapp/MainActivity.java, android/app/src/main/java/com/seonyong/myapp/MainApplication.java,
 *0.68 버전 이상부터는*
 [링크](https://www.inflearn.com/questions/583155) 참고해서 newarchitecture 부분의 이름도 수정해야 합니다.
 
@@ -770,6 +771,16 @@ src/components/EachOrder.tsx
     />
   </NaverMapView>
 </View>
+```
+## android 빌드 안될때
+```shell
+cd android
+```
+```shell
+./gradlew clean || gradlew.bat clean
+```
+```shell
+react-native start --reset-cache
 ```
 ## 위치 정보 가져오기
 권한 얻기(위치정보, 카메라, 갤러리)
