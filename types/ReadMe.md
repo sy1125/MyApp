@@ -928,7 +928,7 @@ export default usePermissions;
 npm i @react-native-community/geolocation
 ```
 src/pages/Ing.tsx
-```
+```typescript jsx
 import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, View} from 'react-native';
 import NaverMapView, {Marker, Path} from 'react-native-nmap';
@@ -1070,8 +1070,8 @@ src/pages/Complete.tsx
 ```
 이미지 선택 후 리사이징
 ```shell
-npm i react-native-image-crop-picker
-npm i react-native-image-resizer
+npm i react-native-image-crop-picker@0.37.2
+npm i react-native-image-resizer (프론트단에서 리사이징해주면 사용하는 자원이 상당히 줄어듦)
 npx pod-install # ios 전용
 ```
 - 이미지 업로드에는 multipart/form-data를 사용함
@@ -1089,6 +1089,7 @@ package.json
   "scripts": {
     "postinstall": "patch-package",
     "android": "react-native run-android",
+  }
 ```
 - patch 후 적용하기
 ```shell
