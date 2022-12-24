@@ -1330,7 +1330,7 @@ export default codePush(codePushOptions)(App);
 메트로 서버 꺼볼 것
 
 ### 완료처리 시 "유효하지 않은 주문입니다."
-axios@0.24 설치(axios@0.25.0에 문제 있음)
+npm i axios@0.24 설치(axios@0.25.0에 문제 있음)
 [링크](https://github.com/axios/axios/issues/4406)
 ### java.lang.RuntimeException: Unable to load script. Make sure you're either running Metro (run 'npx react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release.
 - android/app/src/main/assets 폴더 만들기

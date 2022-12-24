@@ -3,6 +3,7 @@ import {
   Alert,
   Dimensions,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -87,8 +88,13 @@ function Complete() {
       return;
     }
     const formData = new FormData();
-    formData.append('image', image);
+    // formData.append('image', image);
     formData.append('orderId', orderId);
+    formData.append('image', {
+      name: image.name,
+      type: image.type || 'image/jpeg',
+      uri: Platform.OS === 'android' ? image.uri : image.uri.replace('file://', ''),
+    });
     try {
       await axios.post(`${Config.API_URL}/complete`, formData, {
         headers: {
@@ -110,7 +116,7 @@ function Complete() {
   return (
     <View>
       <View style={styles.orderId}>
-        <Text>주문번호: {orderId}</Text>
+        <Text style={{ color: 'black' }}>주문번호: {orderId}</Text>
       </View>
       <View style={styles.preview}>
         {preview && <Image style={styles.previewImage} source={preview} />}
