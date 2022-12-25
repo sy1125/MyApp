@@ -198,6 +198,7 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation 'com.naver.maps:map-sdk:3.14.0'
+    implementation files('libs\\com.skt.Tmap_1.75.jar')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

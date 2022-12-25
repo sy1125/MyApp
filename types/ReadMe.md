@@ -1101,7 +1101,7 @@ npx patch-package react-native-image-crop-picker
 ## Tmap 연결하기(Native Modules)
 [가입](https://openapi.sk.com/)
 - My Project - 프로젝트 생성 - TMap API 신청(무료)
-- [sdk](https://openapi.sk.com/resource/sdk/indexView)
+- [sdk](https://tmapapi.sktelecom.com/main.html#android/sample/androidSample.sdk_download)
 - [안드로이드 연동](http://tmapapi.sktelecom.com/main.html#android/guide/androidGuide.sample1)
 - [ios][iOS 연동](http://tmapapi.sktelecom.com/main.html#ios/guide/iosGuide.sample1)
 - [ios]iOS 연동시 Header 파일들이 project.pbxproj에 등록되었나 확인(다른 것도 당연히)
