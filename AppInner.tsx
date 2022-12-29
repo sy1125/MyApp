@@ -22,6 +22,8 @@ import usePermissions from './src/hooks/usePermissions';
 import SplashScreen from 'react-native-splash-screen';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import messaging from '@react-native-firebase/messaging';
+
 
 export type LoggedInParamList = {
   Orders: undefined;
@@ -129,6 +131,24 @@ function AppInner() {
     getTokenAndRefresh();
   }, [dispatch]);
 
+  // 토큰 설정
+  useEffect(() => {
+    async function getToken() {
+      try {
+        if (!messaging().isDeviceRegisteredForRemoteMessages) {
+          await messaging().registerDeviceForRemoteMessages();
+        }
+        const token = await messaging().getToken();
+        console.log('phone token', token);
+        dispatch(userSlice.actions.setPhoneToken(token));
+        return axios.post(`${Config.API_URL}/phonetoken`, { token });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getToken();
+  }, [dispatch]);
+
   return (
     <NavigationContainer>
       {isLoggedIn ? (
@@ -138,7 +158,10 @@ function AppInner() {
             component={Orders}
             options={{
               title: '오더 목록',
-              tabBarIcon: () => <FontAwesome5Icon name="list" size={20} />
+              tabBarIcon: ({ color }) => (
+                <FontAwesome5Icon name="list" size={20} style={{ color }} />
+              ),
+              tabBarActiveTintColor: 'blue',
             }}
           />
           <Tab.Screen
@@ -147,7 +170,10 @@ function AppInner() {
             options={{
               headerShown: false,
               title: '지도',
-              tabBarIcon: () => <FontAwesome5Icon name="map" size={20} />
+              tabBarIcon: ({ color }) => (
+                <FontAwesome5Icon name="map" size={20} style={{ color }} />
+              ),
+              tabBarActiveTintColor: 'blue',
             }}
           />
           <Tab.Screen
@@ -156,7 +182,10 @@ function AppInner() {
             options={{
               title: '내 정보',
               unmountOnBlur: true,
-              tabBarIcon: () => <FontAwesomeIcon name="gear" size={20} />
+              tabBarIcon: ({ color }) => (
+                <FontAwesomeIcon name="gear" size={20} style={{ color }} />
+              ),
+              tabBarActiveTintColor: 'blue',
             }}
           />
         </Tab.Navigator>

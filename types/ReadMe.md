@@ -1206,6 +1206,7 @@ npm i react-native-push-notification @react-native-community/push-notification-i
 npm i -D @types/react-native-push-notification
 npx pod-install
 ```
+- [참고사이트](https://github.com/zo0r/react-native-push-notification)
 [ios] [따라할 것](https://github.com/react-native-push-notification/ios)
 - firebase 프로젝트 설정 - Admin SDK - Node.js - 새 비공개키 생성 - back 폴더 안에 넣고 app.js 소스 수정
 - 안드로이드 앱 설정 후 google-services.json을 android/app에 넣기
@@ -1371,6 +1372,7 @@ node.js 16버전으로 할 것, node 17버전부터 해당 에러 발생함.
 
 ### Manifest merger failed : android:exported needs to be explicitly specified for element <receiver#com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver>. Apps targeting Android 12 and higher are required to specify an explicit value for `android:exported` when the corresponding component has an intent filter defined
 [링크](https://www.inflearn.com/questions/630107)
+[링크2](https://als2019.tistory.com/91?category=447770)
 
 ## 스스로 해보면 좋을 것
 - loading, disabled 처리 모두 다 하기

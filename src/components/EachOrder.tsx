@@ -65,8 +65,8 @@ function EachOrder({ item }: { item: Order }) {
           ).toFixed(1)}
           km
         </Text>
-        <Text>삼성동</Text>
-        <Text>왕십리동</Text>
+        <Text style={styles.eachInfo}>삼성동</Text>
+        <Text style={styles.eachInfo}>왕십리동</Text>
       </Pressable>
       {detail ? (
         <View>
@@ -130,9 +130,10 @@ const styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   eachInfo: {
-    flex: 1,
+    color: 'black'
   },
   buttonWrapper: {
     flexDirection: 'row',

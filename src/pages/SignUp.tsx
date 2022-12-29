@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
   textInput: {
     padding: 5,
     borderBottomWidth: StyleSheet.hairlineWidth,
+    color: 'black',
   },
   inputWrapper: {
     padding: 20,
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 20,
+    color: 'black',
   },
   buttonZone: {
     alignItems: 'center',
